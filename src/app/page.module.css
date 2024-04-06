@@ -5,6 +5,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  position: relative;
 }
 
 .cover{
@@ -75,6 +76,7 @@
   flex-direction: column;
   right: 0; 
   border: 1px solid rgba(255, 255, 255, 0.1);
+  max-height: 100%;
 }
 
 .settingInterface.hidden{
@@ -124,12 +126,15 @@
 .settingsArea{
   display: flex;
   width: 350px;
+  overflow-y: auto;
 }
 
 .setting{
   display: flex;
   flex-direction: column;
   overflow-x: hidden;
+  overflow-y: scroll;
+  max-height: 100%;
 }
 
 .option{

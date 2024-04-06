@@ -20,6 +20,7 @@ export default function Home() {
   const mainColorRef = useRef(null);
   const [backgroundEnabled, setBackgroundEnabled] = useState(false);
 
+  
   const discordSdk = new DiscordSDK(process.env.NEXT_PUBLIC_DISCORD_CLIENT_ID);
 
   setupDiscordSdk().then(() => {

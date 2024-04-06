@@ -5,6 +5,14 @@
     "Roboto Mono", "Oxygen Mono", "Ubuntu Monospace", "Source Code Pro",
     "Fira Mono", "Droid Sans Mono", "Courier New", monospace;
 
+  --brightness: 100%;
+  --grayscale: 100%;
+  --contrast: 100%;
+  --invert: 0;
+  --blur: 0px;
+  --maincolor:#ff5482;
+  --backgroundcolor: #ff1f4f;
+  --backgroundurl: url('https://i.pinimg.com/originals/17/70/ec/1770ec99284e21c7ab592f088ff9e7bb.jpg');
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
   --background-end-rgb: 255, 255, 255;
@@ -71,6 +79,7 @@
     --card-rgb: 100, 100, 100;
     --card-border-rgb: 200, 200, 200;
   }
+  
 }
 
 * {
@@ -104,4 +113,8 @@ a {
   html {
     color-scheme: dark;
   }
+}
+
+div{
+  transition: all 300ms ease-in-out;
 }

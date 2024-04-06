@@ -3,6 +3,7 @@ import Image from "next/image";
 import styles from "./page.module.css";
 import SingleTournament from "./components/singleTournament";
 import { useState,useRef, useEffect, useReducer} from "react";
+import { DiscordSDK } from "@discord/embedded-app-sdk";
 
 
 export default function Home() {
@@ -18,6 +19,17 @@ export default function Home() {
   const mainRef = useRef(null);
   const mainColorRef = useRef(null);
   const [backgroundEnabled, setBackgroundEnabled] = useState(false);
+
+  const discordSdk = new DiscordSDK(process.env.NEXT_PUBLIC_DISCORD_CLIENT_ID);
+
+  setupDiscordSdk().then(() => {
+    console.log("Discord SDK is ready");
+  });
+  
+  async function setupDiscordSdk() {
+    await discordSdk.ready();
+  }
+
   function settingReducer(state,action)
   {
     let pastState = {...state};
@@ -88,7 +100,7 @@ export default function Home() {
     let mainColor = mainColorRef.current.value;
     let newSetting = {teamsCount,layoutDirection,centralized,strokeStyle,mainColor};
 
-    console.log('Updated',newSetting)
+    //console.log('Updated',newSetting)
     coverRef.current.classList.remove(styles.invisible);
     setTimeout(()=>{
       settingDispatch({type:'SET_SETTING',payload:newSetting});
@@ -101,7 +113,7 @@ export default function Home() {
 
 
   useEffect(()=>{
-    console.log('Sensed Setting Changed',setting)
+    //console.log('Sensed Setting Changed',setting)
   },[setting]);
   return (
     <main className={styles.main} ref={mainRef}>

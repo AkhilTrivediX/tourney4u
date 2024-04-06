@@ -9,7 +9,7 @@ import SingleDownToTop from "./singleDownToTop";
 
 export default function SingleTournament({teamsCount,centralized=false,layoutDirection='leftToRight',strokeStyle='grid',mainColor='#ff5482'}){
 
-    console.log('In Tourney Manager with color:',mainColor)
+    //console.log('In Tourney Manager with color:',mainColor)
     function tourneyReducer(state,action)
     {
         let pastState = {...state};
@@ -27,7 +27,6 @@ export default function SingleTournament({teamsCount,centralized=false,layoutDir
 
     useEffect(()=>{
         tourneyDispatch({type:"UPDATE_SETTINGS",payload:{teamsCount,centralized,layoutDirection,mainColor}});
-        console.log('Change in Color:',mainColor)
     },[teamsCount,centralized,layoutDirection,strokeStyle,mainColor])
 
 

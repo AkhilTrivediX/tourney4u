@@ -1,7 +1,7 @@
 import Xarrow,{useXarrow} from 'react-xarrows';
 import styles from './single.module.css'
 export default function SingleRightToLeft({tourneyData, tourneyDispatch}){
-    console.log('Call to left to right with data',tourneyData)
+    //console.log('Call to left to right with data',tourneyData)
     const updateXarrow = useXarrow();
     return(
         <div className={styles.bracketsArea}>

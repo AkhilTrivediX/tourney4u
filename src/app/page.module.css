@@ -74,13 +74,13 @@
   backdrop-filter: blur(10px);
   display: flex;
   flex-direction: column;
-  left: 0; 
+  right: 0; 
   border: 1px solid rgba(255, 255, 255, 0.1);
   max-height: 100%;
 }
 
 .settingInterface.hidden{
-  left: -25%;
+  right: -25%;
 }
 
 .interfaceTitle{

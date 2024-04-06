@@ -117,4 +117,6 @@ a {
 
 div{
   transition: all 300ms ease-in-out;
-}
+  
+  scrollbar-width: none;
+  -ms-overflow-style: none;}

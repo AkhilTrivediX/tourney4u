@@ -8,9 +8,6 @@
     max-height: 100vh;
     overflow: scroll;
     position: relative;
-    
-    scrollbar-width: none;
-    -ms-overflow-style: none;
 }
 
 .bracketsArea{

@@ -219,15 +219,6 @@ export default function Home() {
   }
 
   let noBackTabs = ['Teams'];
-/*
-  useEffect(()=>{
-    //Print client height and width;
-    console.log('Client Height:',window.innerHeight);
-    console.log('Client Width:',window.innerWidth);
-    let ratio = window.innerWidth/1920;
-    mainRef.current.style.setProperty('--scaleRatio',ratio);
-  })
-*/
 
 
   function captureScreenshot(){

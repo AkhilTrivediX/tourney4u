@@ -5,17 +5,25 @@
     "Roboto Mono", "Oxygen Mono", "Ubuntu Monospace", "Source Code Pro",
     "Fira Mono", "Droid Sans Mono", "Courier New", monospace;
 
-  --brightness: 100%;
+  --brightness: 80%;
   --grayscale: 100%;
-  --contrast: 100%;
+  --contrast: 150%;
   --invert: 0;
   --blur: 0px;
   --maincolor:#ff5482;
   --backgroundcolor: #ff1f4f;
-  --backgroundurl: url('https://i.pinimg.com/originals/17/70/ec/1770ec99284e21c7ab592f088ff9e7bb.jpg');
+  --textcolor: #ff5482;
+  --blendmode: darken;
+  --textweight: 400;
+  --backgroundurl: url('/BackgroundTrial.png');
+  --borderradius: 0px;
+  --strokewidth: 2px;
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
   --background-end-rgb: 255, 255, 255;
+  --global-width: 100vw;
+  --global-height: 100vh;
+  --scaleRatio:1;
 
   --primary-glow: conic-gradient(
     from 180deg at 50% 50%,
@@ -90,7 +98,7 @@
 
 html,
 body {
-  max-width: 100vw;
+  max-width: var(--global-width);
   overflow-x: hidden;
 }
 

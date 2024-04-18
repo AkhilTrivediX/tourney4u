@@ -1,6 +1,6 @@
 .main{
-  width: 100vw;
-  height: 100vh;
+  width: var(--global-width);
+  height: var(--global-height);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -8,16 +8,20 @@
   position: relative;
 }
 
+.backgroundNextImage{
+  position: absolute;
+  z-index: -109;
+}
 .cover{
   position: absolute;
   display: flex;
-  width: 100vw;
-  height: 100vh;
+  width: var(--global-width);
+  height: var(--global-height);
   pointer-events: none;
 }
 
 .innerCover{
-  width: 100vw;
+  width: var(--global-width);
   height: 100%;
   display: flex;
   position: absolute;
@@ -81,6 +85,12 @@
 
 .settingInterface.hidden{
   right: -25%;
+}
+
+@media (max-width: 1000px){
+  .settingInterface.hidden{
+    right: -50%;
+  }
 }
 
 .interfaceTitle{
@@ -148,6 +158,25 @@
   font-weight: 600;
   color: rgba(255, 255, 255, 0.7);
   margin-right: 20px;
+}
+
+.sectionDivision{
+  display: flex;
+  font-size: 12px;
+  font-weight: 400;
+  margin: 15px 15px 0px 15px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.sectionTitle{
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.sectionLine{
+  height: 1px;
+  min-width: 70%;
+  background-color: rgba(255, 255, 255, 0.5);
 }
 
 .optionRange{
@@ -287,8 +316,8 @@
   position: absolute;
   top: 0px;
   left: 0px;
-  height: 100vh;
-  width: 100vw;
+  height: var(--global-height);
+  width: var(--global-width);
   z-index: -100;
   background-image: var(--backgroundurl);
   background-size: cover;
@@ -301,11 +330,11 @@
   position: absolute;
   top: 0px;
   left: 0px;
-  height: 100vh;
-  width: 100vw;
+  height: var(--global-height);
+  width: var(--global-width);
   z-index: -90;
   background-color: var(--backgroundcolor);
-  mix-blend-mode: darken;
+  mix-blend-mode: var(--blendmode);
   backdrop-filter: blur(var(--blur));
 }
 

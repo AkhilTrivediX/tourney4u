@@ -1,3 +1,4 @@
+'use client'
 import Xarrow,{useXarrow} from 'react-xarrows';
 import styles from './single.module.css'
 export default function SingleRightToLeft({tourneyData, tourneyDispatch}){

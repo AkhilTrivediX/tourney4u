@@ -1,3 +1,4 @@
+'use client'
 import Xarrow,{useXarrow} from 'react-xarrows';
 import styles from './single.module.css'
 import { useEffect,useState } from 'react';

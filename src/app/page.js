@@ -5,8 +5,6 @@ import SingleTournament from "./components/singleTournament";
 import { useState,useRef, useEffect, useReducer} from "react";
 import { DiscordSDK } from "@discord/embedded-app-sdk";
 import domtoimage from 'dom-to-image-more';
-import html2canvas from "html2canvas";
-import { exportComponentAsJPEG, exportComponentAsPDF, exportComponentAsPNG } from 'react-component-export-image';
 
 
 export default function Home() {

@@ -194,7 +194,7 @@ export default function Home() {
             <div className={styles.sectionLine}></div>
           </div>)
           let req =setting.textRequirements[i].map((qualifier,index)=>{if(!setting.blockNames[qualifier.winner]) keepGoing=false;return (
-            <div className={styles.option}>
+            <div className={styles.option} key={index}>
               <div className={styles.optionTitle}>Qualifier {qualifier.qualifier}</div>
               <select className={styles.optionSelect} onChange={(e)=>changeBlockName(qualifier.winner,e.target.value)}>
                 <option value={''}>Select one...</option>

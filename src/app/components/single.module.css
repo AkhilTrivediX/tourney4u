@@ -27,6 +27,7 @@
     height: 100%;
     align-content: space-around;
     justify-content: space-around;
+    position: relative;
 }
 
 .match{
@@ -40,31 +41,110 @@
     backdrop-filter: blur(5px);
     color: var(--textcolor);
     background-color: rgba(0,0,0, 0.1);
+    position: relative;
+}
+
+.roundName{
+    font-family: var(--roundfont);
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--textcolor);
+    position: absolute;
+    top: -30%;
 }
 
 .team{
-    padding: 0.8rem;
     width: 100%;
     text-align: center;
     min-width: 200px;
     transition: border 0ms ease-in-out;
     font-size: 1rem;
     font-weight: var(--textweight);
+    display: flex;
+    font-family: var(--teamfont);
+    align-items: center;
 }
 
-/*media type query for mobile devices landscape*/
-@media (max-width: 1000px){
-    .team{
-        font-size: 0.5rem;
-        padding: 0.3rem;
-        min-width: 100px;
-    }
-}
+
 
 .match .team:nth-of-type(2){
     border-top: var(--strokewidth) solid var(--maincolor);
 }
 
+
+.teamIcon{
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.7rem;
+    overflow: hidden;
+    border-radius: var(--borderradius) 0 0 0;
+    transition: 00ms all ease;
+}
+
+.match .team:nth-of-type(2) .teamIcon{
+    border-radius: 0 0 0 var(--borderradius);
+}
+
+
+.iconTint{
+    width: 1.5rem;
+    height: 1.5rem;
+}
+
+.iconTint.originalIcon{
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+
+.iconTint.themeFill{
+    mask-size: contain;
+    mask-repeat: no-repeat;
+    mask-position: center;
+    background-color: var(--maincolor);
+}
+
+
+.iconTint.invertFill{
+    background-color: rgb(23, 23, 23);
+    mask-size: contain;
+    mask-repeat: no-repeat;
+    mask-position: center;
+}
+
+
 .teamName{
+    
+    padding: 0.8rem;
     font-weight: 700;
 }
+
+/*media type query for mobile devices landscape*/
+@media (max-width: 1000px){
+    .team{
+        min-width: 100px;
+    }
+    .teamName{
+        font-size: 0.5rem;
+        padding: 0.3rem;
+    }
+    .teamIcon{
+        padding: 0.3rem;
+    }
+    .iconTint{
+        width: 0.7rem;
+        height: 0.7rem;
+    }
+    .roundName{
+        font-size: 0.7rem;
+        font-weight: 700;
+        color: var(--textcolor);
+        position: absolute;
+        top: -50%;
+    }
+    
+}
+

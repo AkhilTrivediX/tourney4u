@@ -2,6 +2,7 @@
 import Xarrow,{useXarrow} from 'react-xarrows';
 import styles from './single.module.css'
 import { useEffect,useState } from 'react';
+import { teamIconGenerator } from './singleTournament';
 export default function SingleLeftToRight({tourneyData, tourneyDispatch}){
     const updateXarrow = useXarrow();
     return(
@@ -15,7 +16,8 @@ export default function SingleLeftToRight({tourneyData, tourneyDispatch}){
                                             {match.map((team,index)=>{
                                                 return (
                                                     <div className={styles.team} key={team}>
-                                                        <div className={styles.teamName}>{tourneyData.settings.blockNames[team.endsWith('x')?team.substring(0,team.length-1):team] || '‎'}</div>
+                                                        {teamIconGenerator(team.endsWith('x')?team.substring(0,team.length-1):team,tourneyData.settings.teamIconType,tourneyData)}
+                                                        <div className={styles.teamName}>{tourneyData.settings.blockNames[team.endsWith('x')?team.substring(0,team.length-1):team] || '⠀'}</div>
                                                     </div>
                                                 )
                                             })}

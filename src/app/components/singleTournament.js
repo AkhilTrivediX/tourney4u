@@ -7,9 +7,11 @@ import SingleRightToLeft from "./singleLeftToRight";
 import SingleTopToDown from "./singleTopToDown";
 import SingleDownToTop from "./singleDownToTop";
 
-export default function SingleTournament({teamsCount,centralized=false,layoutDirection='leftToRight',strokeStyle='grid',mainColor='#ff5482',strokeWidth=2,settingData,settingDispatch}){
 
-    //console.log('In Tourney Manager with :',settingData.blockNames)
+
+export default function SingleTournament({teamsCount,centralized=false,layoutDirection='leftToRight',strokeStyle='grid',mainColor='#ff336a',strokeWidth=2,teamIconType,settingData,settingDispatch}){
+
+    console.log('In Tourney Manager with :',settingData.blockIcons)
     function tourneyReducer(state,action)
     {
         let pastState = {...state};
@@ -23,11 +25,11 @@ export default function SingleTournament({teamsCount,centralized=false,layoutDir
                 return pastState;
         }
     }
-    const [tourneyData, tourneyDispatch] = useReducer(tourneyReducer,{rounds:0,byes:0,matches:[], joins:[],settings:{teamsCount,centralized,layoutDirection,strokeStyle,mainColor,strokeWidth,blockNames:settingData.blockNames},teamNames:{}});
+    const [tourneyData, tourneyDispatch] = useReducer(tourneyReducer,{rounds:0,byes:0,matches:[], joins:[],settings:{teamsCount,centralized,layoutDirection,strokeStyle,mainColor,strokeWidth,teamIconType,blockNames:settingData.blockNames, blockIcons:settingData.blockIcons},teamNames:{}});
 
     useEffect(()=>{
-        tourneyDispatch({type:"UPDATE_SETTINGS",payload:{teamsCount,centralized,layoutDirection,strokeStyle,mainColor,strokeWidth,blockNames:settingData.blockNames}});
-    },[teamsCount,centralized,layoutDirection,strokeStyle,mainColor,strokeWidth,settingData.blockNames])
+        tourneyDispatch({type:"UPDATE_SETTINGS",payload:{teamsCount,centralized,layoutDirection,strokeStyle,mainColor,strokeWidth,teamIconType,blockNames:settingData.blockNames,blockIcons:settingData.blockIcons}});
+    },[teamsCount,centralized,layoutDirection,strokeStyle,mainColor,strokeWidth,teamIconType,settingData.blockNames, settingData.blockIcons])
 
 
     function getMatches(teamsCount,byes, teamIDs=[],joins,textRequirements, powerOf2Bool=true)
@@ -106,7 +108,7 @@ export default function SingleTournament({teamsCount,centralized=false,layoutDir
         let matches = getMatches(teamsCount-byes,byes,[],joins,textRequirements);
         console.log('Text Requirements:',textRequirements)
         let Winner = matches[matches.length-1][0][0]+'x'+matches[matches.length-1][0][1];
-        let endToWinner = matches[matches.length-2][0][0]+'x'+matches[matches.length-2][0][1];
+        let endToWinner = teamsCount>2?matches[matches.length-2][0][0]+'x'+matches[matches.length-2][0][1]:'1x2';
         console.log(`Connecting ${endToWinner} to ${Winner+'x'}`);
         matches.push([[Winner+'x']]);
         joins.push([Winner,Winner,Winner+'x']);
@@ -139,4 +141,27 @@ export default function SingleTournament({teamsCount,centralized=false,layoutDir
             </div>
         </div>
     )
+}
+
+export function teamIconGenerator(teamName,iconType,tourneyData)
+{
+    let icon = tourneyData.settings.blockIcons[teamName] || `'/D4U Logo.png'`;
+    switch(iconType)
+    {
+        case 'original':
+            return <div className={styles.teamIcon}>
+                <div className={`${styles.iconTint} ${styles.originalIcon}`} style={{backgroundImage:`url(${icon})`}}></div>
+            </div>
+        case 'themeFill':
+            return <div className={styles.teamIcon}>
+                <div className={`${styles.iconTint} ${styles.themeFill}`} style={{maskImage:`url(${icon})`}}></div>
+            </div>
+        case 'invertFill':
+            return <div className={styles.teamIcon} style={{backgroundColor:'var(--maincolor)'}}>
+                <div className={`${styles.iconTint} ${styles.invertFill}`} style={{maskImage:`url(${icon})`}}></div>
+            </div>
+        default:
+            return null;
+        
+    }
 }

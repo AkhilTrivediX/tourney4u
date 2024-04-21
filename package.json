@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@discord/embedded-app-sdk": "^1.1.2",
+    "@vercel/analytics": "^1.2.2",
     "dom-to-image-more": "^3.3.0",
     "html2canvas": "^1.4.1",
     "next": "14.1.4",
